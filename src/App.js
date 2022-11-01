@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import AddBus from "./components/Admin/AddBus";
+import ViewBus from "./components/Admin/ViewBus";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import Home from "./components/Home";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <React.Fragment>
+        <header>
+          <Header />
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} exact />
+            <Route path="/view-bus" element={<ViewBus />} />
+            <Route path="/add-bus" element={<AddBus />} />
+            <Route path="/add-bus/:id" element={<AddBus />} />
+          </Routes>
+        </main>
+      </React.Fragment>
+
+      <div>
+        <Footer></Footer>
+      </div>
     </div>
   );
 }
