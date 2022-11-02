@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { db } from "../../firebase-config";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, deleteDoc, getDocs, doc } from "firebase/firestore";
 import { Link } from "react-router-dom";
 
 function ViewBus() {
@@ -23,8 +23,11 @@ function ViewBus() {
 
   console.log("bus", bus);
 
-  const deleteBus = (id) => {
+  const deleteBus = async (id) => {
     alert(id);
+    const data = doc(db, "bus", id);
+    await deleteDoc(data);
+    setBus(bus.filter((b) => b.id !== id));
     //Swal.fire(" succesfully deleted");
   };
 
