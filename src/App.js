@@ -6,6 +6,8 @@ import AddPackege from "./components/Admin/AddPackege";
 import AdminHome from "./components/Admin/AdminHome";
 import ViewBus from "./components/Admin/ViewBus";
 import ViewPackege from "./components/Admin/ViewPackege";
+import ViewUserDetails from "./components/Admin/ViewUserDetails";
+import ViewUserPackage from "./components/Admin/ViewUserPackage";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
@@ -28,11 +30,16 @@ function App() {
             <Route path="/login" element={<LoginForm />} />
             <Route path="/view-package" element={<ViewPackege />} />
             <Route path="/add-package" element={<AddPackege />} />
-            <Route path="/add-package/:id" element={<AddBus />} />
-            <Route path="/AdminHome" element={<AdminHome/>} />
+            <Route path="/add-package/:id" element={<AddPackege />} />
+            <Route path="/AdminHome" element={<AdminHome />} />
 
             {/* Passenger */}
-            <Route path="/ViewPassenger" element={<ViewPassenger/>} />
+            <Route path="/ViewPassenger" element={<ViewPassenger />} />
+            <Route path="/view-user-details" element={<ViewUserDetails />} />
+            <Route
+              path="/view-user-details/:id"
+              element={<ViewUserPackage />}
+            />
           </Routes>
         </main>
       </React.Fragment>
