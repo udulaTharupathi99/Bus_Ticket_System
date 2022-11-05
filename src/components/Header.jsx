@@ -7,7 +7,7 @@ function Header() {
         <nav className="navbar navbar-expand-md navbar-dark bg-dark">
           <div>
             <a href="#" className="navbar-brand">
-              Bus
+              Bus bus
             </a>
           </div>
         </nav>
