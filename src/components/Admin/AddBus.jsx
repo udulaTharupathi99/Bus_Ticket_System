@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
-import { async } from "@firebase/util";
 import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 
@@ -9,19 +8,22 @@ function AddBus() {
   const [no, setNo] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-  const [time, setTime] = useState("");
+
   const [busNo, setBusNo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
   const busRef = collection(db, "bus");
 
   useEffect(() => {
-    console.log("hi");
     if (id) {
+      //get bus by id
       const getBus = async () => {
-        const data = doc(db, "bus", id);
-        console.log(data);
-        //setBus(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        const data = await getDoc(doc(db, "bus", id));
+        setNo(data.data().no);
+        setStart(data.data().start);
+        setEnd(data.data().end);
+
+        setBusNo(data.data().busNo);
       };
 
       getBus();
@@ -39,14 +41,15 @@ function AddBus() {
   const save = async (e) => {
     e.preventDefault();
 
-    const submitData = { no, start, end, time, busNo };
+    const submitData = { no, start, end, busNo };
 
     if (id) {
-      //await updateDoc(busRef,)
-      navigate.push("/view-bus");
+      const data = doc(db, "bus", id);
+      await updateDoc(data, submitData);
+      navigate("/view-bus");
     } else {
       await addDoc(busRef, submitData);
-      navigate.push("/view-bus");
+      navigate("/view-bus");
     }
   };
 
@@ -91,17 +94,6 @@ function AddBus() {
                     className="form-control"
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
-                  ></input>
-                </div>
-
-                <div className="form-group mb-2">
-                  <label className="form-label"> time :</label>
-                  <input
-                    type="text"
-                    placeholder="Enter"
-                    className="form-control"
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
                   ></input>
                 </div>
 

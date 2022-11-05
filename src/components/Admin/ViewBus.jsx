@@ -43,7 +43,6 @@ function ViewBus() {
           <th> no</th>
           <th> start </th>
           <th>end</th>
-          <th> time </th>
           <th> bus no </th>
           <th> action</th>
         </thead>
@@ -53,7 +52,6 @@ function ViewBus() {
               <td> {b.no} </td>
               <td> {b.start} </td>
               <td>{b.end}</td>
-              <td>{b.time}</td>
               <td>{b.busNo}</td>
 
               <td>
