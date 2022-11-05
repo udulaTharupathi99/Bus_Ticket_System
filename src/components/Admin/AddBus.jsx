@@ -70,7 +70,7 @@ function AddBus() {
                   <label className="form-label"> no :</label>
                   <input
                     type="text"
-                    placeholder="Enter "
+                    placeholder="Route Number"
                     className="form-control"
                     value={no}
                     onChange={(e) => setNo(e.target.value)}
@@ -81,7 +81,7 @@ function AddBus() {
                   <label className="form-label"> start :</label>
                   <input
                     type="text"
-                    placeholder="Enter "
+                    placeholder="Start"
                     className="form-control"
                     value={start}
                     onChange={(e) => setStart(e.target.value)}
@@ -92,7 +92,7 @@ function AddBus() {
                   <label className="form-label"> end :</label>
                   <input
                     type="text"
-                    placeholder="Enter"
+                    placeholder="End"
                     className="form-control"
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
@@ -103,7 +103,7 @@ function AddBus() {
                   <label className="form-label"> start :</label>
                   <input
                     type="text"
-                    placeholder="Enter "
+                    placeholder="Start time"
                     className="form-control"
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
@@ -125,7 +125,7 @@ function AddBus() {
                   <label className="form-label"> busNo :</label>
                   <input
                     type="text"
-                    placeholder="Enter"
+                    placeholder="Bus Number"
                     className="form-control"
                     value={busNo}
                     onChange={(e) => setBusNo(e.target.value)}

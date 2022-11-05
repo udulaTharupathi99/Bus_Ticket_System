@@ -18,18 +18,46 @@ describe("Bus Add form unit testing", () => {
     });
 
     
-    // test("form password type should be a password", () => {
-    //     const { getByPlaceholderText } = render(
-    //       <Router>
-    //         <Login />
-    //       </Router>
-    //     );
-    //     const nameLabel = getByPlaceholderText("Enter IT number");
-    //     const ageLabel = getByPlaceholderText("Enter Password");
-    //     expect(nameLabel).toBeInTheDocument();
-    //     expect(ageLabel).toBeInTheDocument();
-    //     const input = getByPlaceholderText("Enter Password");
-    //     expect(input).toHaveAttribute("type", "password");
-    //   });
+    test("form route name type should be a txt", () => {
+        const { getByPlaceholderText } = render(
+          <Router>
+            <AddBus />
+          </Router>
+        );
+        const routeNo = getByPlaceholderText("Route Number");
+        const startLocation = getByPlaceholderText("Start");
+        const startTime = getByPlaceholderText("Start time");
+        expect(routeNo).toBeInTheDocument();
+        expect(startLocation).toBeInTheDocument();
+        expect(startTime).toBeInTheDocument();
+        const input = getByPlaceholderText("Route Number");
+        expect(input).toHaveAttribute("type", "text");
+        const input1 = getByPlaceholderText("Start time");
+        // expect(input1).toHaveAttribute("type", "date");
+        
+      });
+
+      test("Route Num input field should accept any text format", () => {
+        render(
+          <Router>
+            <AddBus />
+          </Router>
+        );
+        const RouteNO = screen.getByPlaceholderText("Route Number");
+        userEvent.type(RouteNO, "222");
+        expect(RouteNO.value).toMatch("222");
+      });
+
+      
+
+      test("render the Add bus form from with 1 buttons", async () => {
+        render(
+          <Router>
+            <AddBus />
+          </Router>
+        );
+        const buttonList = await screen.findAllByRole("button");
+        expect(buttonList).toHaveLength(1);
+      });
 
 });
