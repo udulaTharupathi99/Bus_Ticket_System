@@ -6,6 +6,7 @@ import ViewBus from "./components/Admin/ViewBus";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
+import LoginForm from "./components/Login";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/view-bus" element={<ViewBus />} />
             <Route path="/add-bus" element={<AddBus />} />
             <Route path="/add-bus/:id" element={<AddBus />} />
+            <Route path = "/login" element ={<LoginForm/>}/>
           </Routes>
         </main>
       </React.Fragment>
