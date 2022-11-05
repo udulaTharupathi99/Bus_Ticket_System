@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
+
 import AddBus from "./components/Admin/AddBus";
 import AddPackege from "./components/Admin/AddPackege";
 import AdminHome from "./components/Admin/AdminHome";
@@ -38,7 +39,7 @@ function App() {
       </React.Fragment>
 
       <div>
-        <Footer></Footer>
+        
       </div>
     </div>
   );

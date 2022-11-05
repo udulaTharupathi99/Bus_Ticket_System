@@ -8,7 +8,7 @@ const ViewPassenger = () => {
 
     const navigate = useNavigate();
   const [bus, setBus] = useState([]);
-  const busRef = collection(db, "bus");
+  const busRef = collection(db, "TimeTable");
 
   useEffect(() => {
     console.log("hi");

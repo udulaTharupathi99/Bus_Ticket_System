@@ -1,4 +1,5 @@
 import React from "react";
+import "../components/Nav.css"
 
 function Footer() {
   return (

@@ -41,7 +41,7 @@ const LoginForm = (params) => {
     <div>
 
 <div>
-      <div class="boxlog mt-5">
+      <div class="boxlog shadow-lg mt-4">
         <h1>Sign In</h1>
 
         <form onSubmit={submitClicked}>
@@ -74,37 +74,6 @@ const LoginForm = (params) => {
       </div>
     </div>
 
-
-
-      <div class="boxlog mt-5">
-        <h1>Sign In</h1>
-
-        <form onSubmit={submitClicked}>
-          <div class="inputlog">
-            <input
-              type="text"
-              name="email"
-              placeholder="UserName"
-              onChange={(e) => {
-                setregNumber(e.target.value);
-              }}
-              required
-            />
-
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(e) => {
-                setpassword(e.target.value);
-              }}
-              required
-            />
-          </div>
-
-          <input type="submit" value="Sign in" className="sub " />
-        </form>
-      </div>
     </div>
   );
 };

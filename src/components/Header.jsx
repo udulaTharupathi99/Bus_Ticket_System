@@ -26,25 +26,21 @@ function Header() {
           </div>
           <ul class="nav-list">
             <li>
-              <a href="#!">Hello {userName}</a>
+              <a onClick={() => {
+                  navigate("/AdminHome");
+                }}>Hello {userName}</a>
             </li>
             <li>
               <a
                 onClick={() => {
-                  navigate("/");
+                  navigate("/view-bus");
                 }}
               >
-                User Details Management
+                Time Tables
               </a>
             </li>
             <li>
-              <a
-                onClick={() => {
-                  navigate("/");
-                }}
-              >
-                mewwa mewwa
-              </a>
+              <a onClick={() => {navigate("/");}}>Packages </a>
             </li>
             <li>
               <a
@@ -99,8 +95,7 @@ function Header() {
             <a href="#!">MyBus</a>
           </div>
           {!isAuthenticated ? unAuthenticatedNavBar() : AuthenticatedNavBar()}
-          {/* {!isAuthenticated ? AuthenticatedNavBar() : unAuthenticatedNavBar()} */}
-          {/* {navbar} */}
+        
         </div>
       </section>
     </div>
