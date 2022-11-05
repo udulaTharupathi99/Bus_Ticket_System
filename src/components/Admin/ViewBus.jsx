@@ -7,7 +7,7 @@ import "../Admin/Admin.css"
 function ViewBus() {
   const navigate = useNavigate();
   const [bus, setBus] = useState([]);
-  const busRef = collection(db, "bus");
+  const busRef = collection(db, "TimeTable");
 
   useEffect(() => {
     console.log("hi");
@@ -25,7 +25,7 @@ function ViewBus() {
 
   const deleteBus = async (id) => {
     alert(id);
-    const data = doc(db, "bus", id);
+    const data = doc(db, "TimeTable", id);
     await deleteDoc(data);
     setBus(bus.filter((b) => b.id !== id));
     //Swal.fire(" succesfully deleted");

@@ -7,8 +7,8 @@ import { db } from "../../firebase-config";
 function AddPackege() {
   const [package_name, setPackage_name] = useState("");
   const [package_type, setPackage_type] = useState("");
-  const [price, setPrice] = useState("");
-  const [valid, setValid] = useState("");
+  const [price, setPrice] = useState();
+  const [valid, setValid] = useState();
   const [details, setDetails] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
