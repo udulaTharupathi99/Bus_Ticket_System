@@ -1,12 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Home.css"
+import ViewPassenger from "./ViewPassenger";
 
 function Home() {
   return (
     <div>
       <div className="hero-image" style={{height:200}}>ss</div>
-      <div>Time table</div>
+      <div><ViewPassenger/></div>
       <Link className="btn btn-info" to={"/view-bus"}>
         bus
       </Link>

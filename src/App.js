@@ -3,12 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AddBus from "./components/Admin/AddBus";
 import AddPackege from "./components/Admin/AddPackege";
+import AdminHome from "./components/Admin/AdminHome";
 import ViewBus from "./components/Admin/ViewBus";
 import ViewPackege from "./components/Admin/ViewPackege";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import LoginForm from "./components/Login";
+import ViewPassenger from "./components/ViewPassenger";
 
 function App() {
   return (
@@ -27,6 +29,10 @@ function App() {
             <Route path="/view-package" element={<ViewPackege />} />
             <Route path="/add-package" element={<AddPackege />} />
             <Route path="/add-package/:id" element={<AddBus />} />
+            <Route path="/AdminHome" element={<AdminHome/>} />
+
+            {/* Passenger */}
+            <Route path="/ViewPassenger" element={<ViewPassenger/>} />
           </Routes>
         </main>
       </React.Fragment>

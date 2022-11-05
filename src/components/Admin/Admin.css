@@ -5,7 +5,7 @@
  .admin-wcad{
    border-radius: 43px;
 background: linear-gradient(145deg, #faf9f9, #f0f0f0);
-box-shadow:  23px 23px 25px #7b7b7b;
+box-shadow:  23px 23px 25px #e02626;
  }
 
  .admin-srchbr1{
@@ -49,7 +49,7 @@ box-shadow:  23px 23px 25px #7b7b7b;
    border-radius: 50px;
    font-size: 14px;
    box-sizing: border-box;
-   box-shadow: -5px 5px 50px 0 #d1e1fc;
+   box-shadow: -5px 5px 50px 0 #1a55bb;
  }
  .checkbox{
    margin: 20px auto;
@@ -77,6 +77,6 @@ box-shadow:  23px 23px 25px #7b7b7b;
    text-align: center;
    font-size: 14px;
    color: white;
-   background-image: linear-gradient(to bottom right, #9734ff, #3c00f5);
-   box-shadow: 0 20px 50px -10px blue;
+   background-image: linear-gradient(to bottom right, #FFB200, #FFB200);
+   box-shadow: 0 20px 50px -10px rgb(97, 97, 97);
  }

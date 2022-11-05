@@ -122,34 +122,6 @@ function ViewBus() {
               </td>
             </tr>
           ))}
-                    {/* {notices?.map((note) => (
-                      <tr key={note.id}>
-                        <td>{note.faculty}</td>
-                        <td>{note.date}</td>
-                        <td>{note.topic}</td>
-                        <td>{note.notice}</td>
-                        <td>
-                          <Link
-                            className="btn btn-warning"
-                            to={`/AdminHome/NoticeTable/NoticeForm/${note._id}`}
-                          >
-                            Update &nbsp;
-                            <i class="fa fa-cog" aria-hidden="true"></i>
-                          </Link>
-                        </td>
-                        
-                        <td>
-                          <button
-                            type="button"
-                            // onClick={() => deleteNotice(note._id)}
-                            class="btn btn-danger"
-                          > Delete &nbsp;
-                            <i class="fa fa-trash" aria-hidden="true"></i> 
-                            
-                          </button>
-                        </td> 
-                      </tr>
-                    ))} */}
                   </tbody>
                 </table>
                 <br></br>
