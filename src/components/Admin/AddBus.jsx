@@ -77,9 +77,11 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                    
                     type="text"
                     minLength="2"
+                    placeholder="Route Number"
+                    
                     value={no}
                     onChange={(e) => setNo(e.target.value)}
                     required
@@ -94,9 +96,11 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                   
                     type="text"
                     minLength="2"
+                    placeholder="Start"
+                    
                     value={start}
                     onChange={(e) => setStart(e.target.value)}
                   />
@@ -110,9 +114,11 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                   
                     type="text"
                     minLength="2"
+                    placeholder="End"
+                    
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
                     required
@@ -127,9 +133,12 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                   
                     type="time"
                     minLength="2"
+                   
+                    placeholder="Start time"
+                    
                     value={startTime}
                     onChange={(e) => setStartTime(e.target.value)}
                     required
@@ -144,7 +153,7 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                   
                     type="time"
                     minLength="2"
                     value={endTime}
@@ -161,18 +170,16 @@ function AddBus() {
                     name="topic"
                     style={{ marginLeft: 9 }}
                     className="form-control w-75"
-                    placeholder="Add Topic..."
+                   
                     type="text"
                     minLength="2"
+                    placeholder="Bus Number"
+                    
                     value={busNo}
                     onChange={(e) => setBusNo(e.target.value)}
                     required
                   />
                 </div>
-
-               
-
-               
 
                 <div
                   className="row w-50 mx-auto mt-3 mb-4 "

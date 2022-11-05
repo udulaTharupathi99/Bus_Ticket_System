@@ -67,7 +67,7 @@ function AddPackege() {
                   <label className="form-label"> name :</label>
                   <input
                     type="text"
-                    placeholder="Enter "
+                    placeholder="Package Name"
                     className="form-control"
                     value={package_name}
                     onChange={(e) => setPackage_name(e.target.value)}
@@ -89,7 +89,7 @@ function AddPackege() {
                   <label className="form-label"> price :</label>
                   <input
                     type="text"
-                    placeholder="Enter"
+                    placeholder="price"
                     className="form-control"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
