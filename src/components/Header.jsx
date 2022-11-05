@@ -96,7 +96,7 @@ function Header() {
       <section class="navigation">
         <div class="nav-container">
           <div class="brand">
-            <a href="#!">Bus</a>
+            <a href="#!">MyBus</a>
           </div>
           {!isAuthenticated ? unAuthenticatedNavBar() : AuthenticatedNavBar()}
           {/* {!isAuthenticated ? AuthenticatedNavBar() : unAuthenticatedNavBar()} */}
