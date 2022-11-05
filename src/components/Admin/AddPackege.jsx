@@ -17,8 +17,8 @@ function AddPackege() {
   useEffect(() => {
     if (id) {
       const getpackage = async () => {
-        const data = doc(db, "Package", id);
-        console.log(data);
+        const data = getDoc(db, "Package", id);
+        console.log("d", data);
         setPackage_name(data.data().package_name);
         setPackage_type(data.data().package_type);
         setPrice(data.data().price);
