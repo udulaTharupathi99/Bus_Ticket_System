@@ -8,6 +8,8 @@ function AddBus() {
   const [no, setNo] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [busNo, setBusNo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -21,6 +23,8 @@ function AddBus() {
         setNo(data.data().no);
         setStart(data.data().start);
         setEnd(data.data().end);
+        setStartTime(data.data().startTime);
+        setEndTime(data.data().endTime);
         setBusNo(data.data().busNo);
       };
 
@@ -39,7 +43,7 @@ function AddBus() {
   const save = async (e) => {
     e.preventDefault();
 
-    const submitData = { no, start, end, busNo };
+    const submitData = { no, start, end, startTime, endTime, busNo };
 
     if (id) {
       const data = doc(db, "bus", id);
@@ -92,6 +96,28 @@ function AddBus() {
                     className="form-control"
                     value={end}
                     onChange={(e) => setEnd(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label"> start :</label>
+                  <input
+                    type="text"
+                    placeholder="Enter "
+                    className="form-control"
+                    value={startTime}
+                    onChange={(e) => setStartTime(e.target.value)}
+                  ></input>
+                </div>
+
+                <div className="form-group mb-2">
+                  <label className="form-label"> end :</label>
+                  <input
+                    type="text"
+                    placeholder="Enter"
+                    className="form-control"
+                    value={endTime}
+                    onChange={(e) => setEndTime(e.target.value)}
                   ></input>
                 </div>
 

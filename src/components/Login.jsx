@@ -46,7 +46,7 @@ const LoginForm = (params) => {
             <input
               type="text"
               name="email"
-              placeholder="Registration number"
+              placeholder="UserName"
               onChange={(e) => {
                 setregNumber(e.target.value);
               }}
