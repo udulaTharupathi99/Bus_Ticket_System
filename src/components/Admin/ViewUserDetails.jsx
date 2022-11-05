@@ -7,52 +7,66 @@ import { Link } from "react-router-dom";
 function ViewBus() {
   const navigate = useNavigate();
   const [list, setList] = useState([]);
-  const purchasedRef = collection(db, "Purchased_packages");
+  const userRef = collection(db, "RegisteredUser");
 
   useEffect(() => {
     const getDetails = async () => {
-      const data = await getDocs(purchasedRef);
+      const data = await getDocs(userRef);
       console.log(data);
       setList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
+    // const getDetails = async () => {
+    //   const q = query(
+    //     collection(db, "RegisteredUser"),
+    //     where("passenger_Id", "==", myData.uid)
+    //   );
+    //   const data = await getDocs(q);
+    //   console.log(data);
+    //   setList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    // };
+
     getDetails();
+
+    // const getTasks = async () => {
+    //   const q = query(
+    //     collection(db, "purchased_packages"),
+    //     where("passenger_Id", "==", myData.uid)
+    //   );
+    //   const data = await getDocs(q);
+    //   setData(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    // };
+    // getTasks();
   }, []);
 
   console.log("bus", list);
 
-  const deleteItem = async (id) => {
-    alert(id);
-    const data = doc(db, "Purchased_packages", id);
-    await deleteDoc(data);
-    setList(list.filter((b) => b.id !== id));
-    //Swal.fire(" succesfully deleted");
-  };
+  // const deleteItem = async (id) => {
+  //   alert(id);
+  //   const data = doc(db, "Purchased_packages", id);
+  //   await deleteDoc(data);
+  //   setList(list.filter((b) => b.id !== id));
+  //   //Swal.fire(" succesfully deleted");
+  // };
 
   return (
     <div className="container">
       <h1>list</h1>
-      <Link to="/add-bus" className="btn btn-primary mb-2">
+      {/* <Link to="/add-bus" className="btn btn-primary mb-2">
         Add
-      </Link>
+      </Link> */}
 
       <table className="table table-bordered table-striped">
         <thead>
-          <th> no</th>
-          <th> start </th>
-          <th>end</th>
-          <th> time </th>
-          <th> bus no </th>
-          <th> action</th>
+          <th> name</th>
+          <th> mobile </th>
+          <th>view</th>
         </thead>
         <tbody>
-          {bus.map((b) => (
+          {list.map((b) => (
             <tr key={b.id}>
-              <td> {b.no} </td>
-              <td> {b.start} </td>
-              <td>{b.end}</td>
-              <td>{b.time}</td>
-              <td>{b.busNo}</td>
+              <td> {b.name} </td>
+              <td> {b.phone - number} </td>
 
               <td>
                 <Link className="btn btn-info" to={`/add-bus/${b.id}`}>
@@ -60,7 +74,7 @@ function ViewBus() {
                 </Link>
                 <button
                   className="btn btn-danger"
-                  onClick={() => deleteBus(b.id)}
+                  onClick={() => deleteItem(b.id)}
                   style={{ marginLeft: "10px" }}
                 >
                   Delete

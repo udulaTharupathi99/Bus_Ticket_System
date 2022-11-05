@@ -13,13 +13,13 @@ function AddBus() {
   const [busNo, setBusNo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
-  const busRef = collection(db, "bus");
+  const busRef = collection(db, "TimeTable");
 
   useEffect(() => {
     if (id) {
       //get bus by id
       const getBus = async () => {
-        const data = await getDoc(doc(db, "bus", id));
+        const data = await getDoc(doc(db, "TimeTable", id));
         setNo(data.data().no);
         setStart(data.data().start);
         setEnd(data.data().end);
@@ -46,7 +46,7 @@ function AddBus() {
     const submitData = { no, start, end, startTime, endTime, busNo };
 
     if (id) {
-      const data = doc(db, "bus", id);
+      const data = doc(db, "TimeTable", id);
       await updateDoc(data, submitData);
       navigate("/view-bus");
     } else {
