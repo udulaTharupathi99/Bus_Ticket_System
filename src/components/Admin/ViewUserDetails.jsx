@@ -21,36 +21,61 @@ function ViewUserDetails() {
   console.log("bus", list);
 
   return (
-    <div className="container">
-      <h1>list</h1>
-      {/* <Link to="/add-bus" className="btn btn-primary mb-2">
-        Add
-      </Link> */}
+    <div >
 
-      <table className="table table-bordered table-striped">
-        <thead>
-          <th> name</th>
-          <th> mobile </th>
-          <th>view</th>
-        </thead>
-        <tbody>
-          {list.map((b) => (
-            <tr key={b.id}>
-              <td> {b.name} </td>
-              <td> {b.phone_number} </td>
 
-              <td>
-                <Link
-                  className="btn btn-info"
-                  to={`/view-user-details/${b.id}`}
-                >
-                  view
-                </Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+<div className="">
+        <div className="p-3">
+      <div
+        className=" boxnotice card text-center p-3"
+       
+      >
+        <h1>View Users</h1>
+
+        <div>
+          <div className="container p-1 mt-4 mb-4">
+            <div className="row ">
+              <div className="shadow-lg card mx-auto w-100">
+              <div className=" container d-flex flex-row">                  
+                    
+    </div>
+                <table class="table table-striped mt-3">
+                  <thead className="table-primary">
+                    <tr>
+                       <th scope="col">Name</th>
+                        <th scope="col">Mobile </th>                        
+                        <th scope="col">View</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                                {list.map((b) => (
+                          <tr key={b.id}>
+                            <td> {b.name} </td>
+                            <td> {b.phone_number} </td>
+
+                            <td>
+                              <Link
+                                className="btn btn-info"
+                                to={`/view-user-details/${b.id}`}
+                              >
+                                view
+                              </Link>
+                            </td>
+                          </tr>
+                        ))}
+                  </tbody>
+                </table>
+                <br></br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
+    </div>
     </div>
   );
 }

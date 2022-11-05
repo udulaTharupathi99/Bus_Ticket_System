@@ -32,11 +32,6 @@ function ViewBus() {
   };
 
   return (
-
-    
-
-
-
     <div className="">
         <div className="p-3">
       <div
@@ -54,33 +49,6 @@ function ViewBus() {
               <Link to="/add-bus" className="btn btn-primary mt-3 p-2">
                   Add Time Table
                 </Link>
-
-
-                 
-                    
-           {/* <input type="text" placeholder="Search By Notice" className="form-control
-            mt-3 admin-srchbr1"onChange={(e) => {setSearch(e.target.value); }} />
-
-            <input type="date" placeholder="Search By Notice" className="form-control mt-3 admin-srchbr-date "
-          
-              onChange={(e) => {setSearch(e.target.value); }} />
-              */}
-             {/* <button type="button" className="btn btn-success mt-3 admin-cad" onClick={() =>print({
-                            printable: notices, header: 'Announcement Details',
-                            properties:
-                            [
-                            {field: 'faculty', displayName:'Faculty'},
-                            {field: 'date', displayName:'Date'},
-                            {field: 'topic', displayName:'Topic'},
-                            {field: 'notice', displayName:'Notice'},
-                           
-                        ],
-                            type:'json'
-                            })}> 
-                            print Details
-                            &nbsp;
-                            <i class="fa fa-print" aria-hidden="true"></i> </button>
-                         */}
                     
                     
     </div>

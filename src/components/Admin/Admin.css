@@ -20,7 +20,7 @@ box-shadow:  23px 23px 25px #e02626;
 
  .boxnotice{
    position: absolute;
-   margin-top: 17%;
+   margin-top: 20%;
    left: 50%;
 
    transform: translate(-50%, -50%);

@@ -30,31 +30,51 @@ function ViewPackege() {
   };
 
   return (
-    <div className="container">
-      <h1>list</h1>
-      <Link to="/add-package" className="btn btn-primary mb-2">
-        Add
-      </Link>
+    <div >
+       <div >
+        <div className="p-3">
+      <div
+        className=" boxnotice card text-center  p-3"
+       
+      >
+        <h1>Packages</h1>
 
-      <table className="table table-bordered table-striped">
-        <thead>
-          <th> name</th>
-          <th> type </th>
-          <th>price</th>
-          <th> valid </th>
-          <th> details no </th>
-          <th> action</th>
-        </thead>
-        <tbody>
-          {packageList.map((b) => (
-            <tr key={b.id}>
-              <td> {b.package_name} </td>
-              <td> {b.package_type} </td>
-              <td>{b.price}</td>
-              <td>{b.valid}</td>
-              <td>{b.details}</td>
-              <td>
-                <Link className="btn btn-info" to={`/add-package/${b.id}`}>
+        <div>
+          <div className="container p-1 mt-4 mb-4">
+            <div className="row ">
+              <div className="shadow-lg card mx-auto w-100">
+              <div className=" container d-flex flex-row">
+
+              <Link to="/add-package" className="btn btn-primary mt-3 p-2">
+                  Add Package
+                </Link>
+                    
+                    
+    </div>
+                <table class="table table-striped mt-3">
+                  <thead className="table-primary">
+                    <tr>
+                       <th scope="col"> Name</th>
+                        <th scope="col">Type </th>
+                        <th scope="col">Price</th>
+                        <th scope="col"> Valid </th>
+                        <th scope="col">Details No</th>
+                       
+                        <th scope="col">Action</th>
+                      
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                                  {packageList.map((b) => (
+                            <tr key={b.id}>
+                              <td> {b.package_name} </td>
+                              <td> {b.package_type} </td>
+                              <td>{b.price}</td>
+                              <td>{b.valid}</td>
+                              <td>{b.details}</td>
+                              <td>
+                              <Link className="btn btn-info" to={`/add-package/${b.id}`}>
                   Update
                 </Link>
                 <button
@@ -64,11 +84,21 @@ function ViewPackege() {
                 >
                   Delete
                 </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+                              </td>
+                            </tr>
+                          ))}
+                  </tbody>
+                </table>
+                <br></br>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+            
+    </div>
+   
     </div>
   );
 }
