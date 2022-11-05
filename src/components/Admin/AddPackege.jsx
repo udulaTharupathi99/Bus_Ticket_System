@@ -1,30 +1,31 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
-import { async } from "@firebase/util";
 import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
 
-function AddBus() {
-  const [no, setNo] = useState("");
-  const [start, setStart] = useState("");
-  const [end, setEnd] = useState("");
-  const [time, setTime] = useState("");
-  const [busNo, setBusNo] = useState("");
+function AddPackege() {
+  const [package_name, setPackage_name] = useState("");
+  const [package_type, setPackage_type] = useState("");
+  const [price, setPrice] = useState("");
+  const [valid, setValid] = useState("");
+  const [details, setDetails] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
-  const busRef = collection(db, "bus");
+  const packageRef = collection(db, "Package");
 
   useEffect(() => {
-    console.log("hi");
     if (id) {
-      const getBus = async () => {
-        const data = doc(db, "bus", id);
+      const getpackage = async () => {
+        const data = doc(db, "Package", id);
         console.log(data);
-        //setBus(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setPackage_name(data.data().package_name);
+        setPackage_type(data.data().package_type);
+        setPrice(data.data().price);
+        setValid(data.data().valid);
+        setDetails(data.data().details);
       };
-
-      getBus();
+      getpackage();
     }
   }, []);
 
@@ -39,13 +40,14 @@ function AddBus() {
   const save = async (e) => {
     e.preventDefault();
 
-    const submitData = { no, start, end, time, busNo };
+    const submitData = { package_name, package_type, price, valid, details };
 
     if (id) {
-      //await updateDoc(busRef,)
-      navigate.push("/view-bus");
+      const data = doc(db, "Package", id);
+      await updateDoc(data, submitData);
+      navigate("/view-bus");
     } else {
-      await addDoc(busRef, submitData);
+      await addDoc(packageRef, submitData);
       navigate.push("/view-bus");
     }
   };
@@ -62,35 +64,35 @@ function AddBus() {
             <div className="card-body">
               <form>
                 <div className="form-group mb-2">
-                  <label className="form-label"> no :</label>
+                  <label className="form-label"> name :</label>
                   <input
                     type="text"
                     placeholder="Enter "
                     className="form-control"
-                    value={no}
-                    onChange={(e) => setNo(e.target.value)}
+                    value={package_name}
+                    onChange={(e) => setPackage_name(e.target.value)}
                   ></input>
                 </div>
 
                 <div className="form-group mb-2">
-                  <label className="form-label"> start :</label>
+                  <label className="form-label"> type :</label>
                   <input
                     type="text"
                     placeholder="Enter "
                     className="form-control"
-                    value={start}
-                    onChange={(e) => setStart(e.target.value)}
+                    value={package_type}
+                    onChange={(e) => setPackage_type(e.target.value)}
                   ></input>
                 </div>
 
                 <div className="form-group mb-2">
-                  <label className="form-label"> end :</label>
+                  <label className="form-label"> price :</label>
                   <input
                     type="text"
                     placeholder="Enter"
                     className="form-control"
-                    value={end}
-                    onChange={(e) => setEnd(e.target.value)}
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
                   ></input>
                 </div>
 
@@ -100,19 +102,19 @@ function AddBus() {
                     type="text"
                     placeholder="Enter"
                     className="form-control"
-                    value={time}
-                    onChange={(e) => setTime(e.target.value)}
+                    value={valid}
+                    onChange={(e) => setValid(e.target.value)}
                   ></input>
                 </div>
 
                 <div className="form-group mb-2">
-                  <label className="form-label"> busNo :</label>
+                  <label className="form-label"> details :</label>
                   <input
                     type="text"
                     placeholder="Enter"
                     className="form-control"
-                    value={busNo}
-                    onChange={(e) => setBusNo(e.target.value)}
+                    value={details}
+                    onChange={(e) => setDetails(e.target.value)}
                   ></input>
                 </div>
 
@@ -131,4 +133,4 @@ function AddBus() {
   );
 }
 
-export default AddBus;
+export default AddPackege;

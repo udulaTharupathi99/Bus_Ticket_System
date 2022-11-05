@@ -8,7 +8,6 @@ function AddBus() {
   const [no, setNo] = useState("");
   const [start, setStart] = useState("");
   const [end, setEnd] = useState("");
-
   const [busNo, setBusNo] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
@@ -22,7 +21,6 @@ function AddBus() {
         setNo(data.data().no);
         setStart(data.data().start);
         setEnd(data.data().end);
-
         setBusNo(data.data().busNo);
       };
 

@@ -6,28 +6,26 @@ import { Link } from "react-router-dom";
 
 function ViewBus() {
   const navigate = useNavigate();
-  const [bus, setBus] = useState([]);
-  const busRef = collection(db, "bus");
+  const [list, setList] = useState([]);
+  const purchasedRef = collection(db, "Purchased_packages");
 
   useEffect(() => {
-    console.log("hi");
-
-    const getBus = async () => {
-      const data = await getDocs(busRef);
+    const getDetails = async () => {
+      const data = await getDocs(purchasedRef);
       console.log(data);
-      setBus(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setList(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
-    getBus();
+    getDetails();
   }, []);
 
-  console.log("bus", bus);
+  console.log("bus", list);
 
-  const deleteBus = async (id) => {
+  const deleteItem = async (id) => {
     alert(id);
-    const data = doc(db, "bus", id);
+    const data = doc(db, "Purchased_packages", id);
     await deleteDoc(data);
-    setBus(bus.filter((b) => b.id !== id));
+    setList(list.filter((b) => b.id !== id));
     //Swal.fire(" succesfully deleted");
   };
 
