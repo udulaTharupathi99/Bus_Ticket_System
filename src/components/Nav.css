@@ -17,7 +17,7 @@ nav {
     display: block;
     padding: 0 20px;
     line-height: 70px;
-    background: #ffffff;
+    background: #FFB200;
     color: #463f3f;
     text-decoration: none;
     /*
@@ -130,7 +130,7 @@ nav {
   */
   .navigation {
     height: 70px;
-    background: #ffffff;
+    background: #FFB200;
   }
   
   /*
@@ -151,6 +151,6 @@ nav {
   }
   .brand a,
   .brand a:visited {
-    color: #463f3f;
+    color: #ffffff;
     text-decoration: none;
   }
