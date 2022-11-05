@@ -1,0 +1,9 @@
+.hero-image{
+    background-image: url("../components/images/bus.jpg");
+    height: 90;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  
+}
