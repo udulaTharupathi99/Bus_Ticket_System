@@ -14,7 +14,7 @@ function ViewBus() {
 
     const getBus = async () => {
       const data = await getDocs(busRef);
-      console.log(data);
+      console.log("view", data);
       setBus(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
@@ -43,6 +43,8 @@ function ViewBus() {
           <th> no</th>
           <th> start </th>
           <th>end</th>
+          <th> start time </th>
+          <th>end end</th>
           <th> bus no </th>
           <th> action</th>
         </thead>
@@ -52,6 +54,8 @@ function ViewBus() {
               <td> {b.no} </td>
               <td> {b.start} </td>
               <td>{b.end}</td>
+              <td> {b.startTime} </td>
+              <td>{b.endTime}</td>
               <td>{b.busNo}</td>
 
               <td>
