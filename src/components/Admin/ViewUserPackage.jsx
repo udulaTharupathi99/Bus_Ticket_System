@@ -36,56 +36,46 @@ function ViewUserPackage() {
   console.log("id", id);
 
   return (
-    <div >
-
-<div className="">
+    <div>
+      <div className="">
         <div className="p-3">
-      <div
-        className=" boxnotice card text-center p-3"
-       
-      >
-        <h1>View User Purchases </h1>
+          <div className=" boxnotice card text-center p-3">
+            <h1>View User Purchases </h1>
 
-        <div>
-          <div className="container p-1 mt-4 mb-4">
-            <div className="row ">
-              <div className="shadow-lg card mx-auto w-100">
-              <div className=" container d-flex flex-row">     
-                    
-                    
-    </div>
-                <table class="table table-striped mt-3">
-                  <thead className="table-primary">
-                    <tr>
-                       <th scope="col">Name</th>
-                        <th scope="col">Type </th>
-                        <th scope="col">Purchase</th>
-                       
-                         <th scope="col">Expired</th>
-                      
-                    </tr>
-                  </thead>
-                  <tbody>
+            <div>
+              <div className="container p-1 mt-4 mb-4">
+                <div className="row ">
+                  <div className="shadow-lg card mx-auto w-100">
+                    <div className=" container d-flex flex-row"></div>
+                    <table class="table table-striped mt-3">
+                      <thead className="table-primary">
+                        <tr>
+                          <th scope="col">Package Name</th>
+                          <th scope="col">Package Type </th>
+                          <th scope="col">Purchase Day</th>
 
-                              {list.map((b) => (
-                        <tr key={b.id}>
-                          <td> {b.package_name} </td>
-                          <td> {b.package_type} </td>
-                          <td> {b.purchased} </td>
-                          <td> {b.expired} </td>
+                          <th scope="col">Expired Day</th>
                         </tr>
-          ))}
-                  </tbody>
-                </table>
-                <br></br>
+                      </thead>
+                      <tbody>
+                        {list.map((b) => (
+                          <tr key={b.id}>
+                            <td> {b.package_name} </td>
+                            <td> {b.package_type} </td>
+                            <td> {b.purchased} </td>
+                            <td> {b.expired} </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <br></br>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-            
-    </div>
     </div>
   );
 }

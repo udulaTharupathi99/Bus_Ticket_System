@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
 import { collection, addDoc, getDoc, doc, updateDoc } from "firebase/firestore";
 import { db } from "../../firebase-config";
+import Swal from "sweetalert2";
 
 function AddPackege() {
   const [package_name, setPackage_name] = useState("");
@@ -17,7 +18,7 @@ function AddPackege() {
   useEffect(() => {
     if (id) {
       const getpackage = async () => {
-        const data = getDoc(db, "Package", id);
+        const data = await getDoc(doc(db, "Package", id));
         console.log("d", data);
         setPackage_name(data.data().package_name);
         setPackage_type(data.data().package_type);
@@ -31,9 +32,9 @@ function AddPackege() {
 
   const title = () => {
     if (id) {
-      return <h1>Update </h1>;
+      return <h1>Update Package</h1>;
     } else {
-      return <h1>Add </h1>;
+      return <h1>Add Package </h1>;
     }
   };
 
@@ -45,155 +46,152 @@ function AddPackege() {
     if (id) {
       const data = doc(db, "Package", id);
       await updateDoc(data, submitData);
-      navigate("/view-bus");
+      Swal.fire(" Succesfull Update");
+      navigate("/view-package");
     } else {
       await addDoc(packageRef, submitData);
-      navigate.push("/view-bus");
+      Swal.fire(" Succesfull");
+      navigate("/view-package");
     }
   };
 
   return (
     <div className="">
+      <div>
+        <div className="row">
+          <div
+            class="card shadow-lg text-bg-white adminNotice-table mb-3 mt-5 text-center"
+            style={{ maxWidth: 900, marginLeft: 300, borderRadius: 30 }}
+          >
+            <div class="card-body">
+              <h2 class="card-title mt-1">{title()}</h2>
+              <form>
+                <div>
+                  {/* package name */}
+                  <div className="row w-50  mx-auto mt-3">
+                    <strong
+                      style={{ marginLeft: -9 }}
+                      className="col-sm-3  col-form-label"
+                    >
+                      Package
+                    </strong>
+                    <input
+                      name="topic"
+                      style={{ marginLeft: 9 }}
+                      className="form-control w-75"
+                      type="text"
+                      minLength="2"
+                      placeholder="Package Name"
+                      value={package_name}
+                      onChange={(e) => setPackage_name(e.target.value)}
+                      required
+                    />
+                  </div>
 
+                  {/* type */}
+                  <div className="row w-50  mx-auto mt-3">
+                    <strong
+                      style={{ marginLeft: -9 }}
+                      className="col-sm-3  col-form-label"
+                    >
+                      Type
+                    </strong>
+                    <input
+                      name="topic"
+                      style={{ marginLeft: 9 }}
+                      className="form-control w-75"
+                      type="text"
+                      minLength="2"
+                      placeholder="Package Type"
+                      value={package_type}
+                      onChange={(e) => setPackage_type(e.target.value)}
+                    />
+                  </div>
 
-<div>
-      <div className="row">
-        <div
-          class="card shadow-lg text-bg-white adminNotice-table mb-3 mt-5 text-center"
-          style={{ maxWidth: 900, marginLeft: 300, borderRadius: 30 }}
-        >
-          <div class="card-body">
-            <h2 class="card-title mt-1">{title()}</h2>
-            <form >
-              <div>
-             {/* package name */}
-                <div className="row w-50  mx-auto mt-3">
-                <strong  style={{ marginLeft: -9 }} className="col-sm-3  col-form-label" >
-                    Package
-                  </strong>
-                  <input
-                    name="topic"
-                    style={{ marginLeft: 9 }}
-                    className="form-control w-75"
-                    
-                    type="text"
-                    minLength="2"
-                    placeholder="Route Number"
-                    
-                    value={package_name}
-                    onChange={(e) => setPackage_name(e.target.value)}
-                    required
-                  />
+                  {/* price */}
+                  <div className="row w-50  mx-auto mt-3">
+                    <strong
+                      style={{ marginLeft: -9 }}
+                      className="col-sm-3  col-form-label"
+                    >
+                      price
+                    </strong>
+                    <input
+                      name="topic"
+                      style={{ marginLeft: 9 }}
+                      className="form-control w-75"
+                      type="number"
+                      minLength="2"
+                      placeholder="Price"
+                      value={price}
+                      onChange={(e) => setPrice(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  {/* time */}
+                  <div className="row w-50  mx-auto mt-3">
+                    <strong
+                      style={{ marginLeft: -9 }}
+                      className="col-sm-3  col-form-label"
+                    >
+                      Valid
+                    </strong>
+                    <input
+                      name="topic"
+                      style={{ marginLeft: 9 }}
+                      className="form-control w-75"
+                      type="number"
+                      minLength="2"
+                      placeholder="Count of valid days"
+                      value={valid}
+                      onChange={(e) => setValid(e.target.value)}
+                      required
+                    />
+                  </div>
+                  {/* details */}
+                  <div className="row w-50  mx-auto mt-3">
+                    <strong
+                      style={{ marginLeft: -9 }}
+                      className="col-sm-3  col-form-label"
+                    >
+                      Details
+                    </strong>
+                    <textarea
+                      name="topic"
+                      style={{ marginLeft: 9 }}
+                      className="form-control w-75"
+                      type="text"
+                      minLength="2"
+                      placeholder="Details"
+                      value={details}
+                      onChange={(e) => setDetails(e.target.value)}
+                      required
+                    />
+                  </div>
+
+                  <div
+                    className="row w-50 mx-auto mt-3 mb-4 "
+                    style={{ borderRadius: 30 }}
+                  >
+                    <button
+                      className="btn btn-primary mb-2"
+                      onClick={(e) => save(e)}
+                    >
+                      Submit
+                    </button>
+                    <Link to="/view-bus" className="btn btn-danger">
+                      Cancel
+                    </Link>
+                  </div>
                 </div>
-
-                {/* type */}
-                <div className="row w-50  mx-auto mt-3">
-                <strong  style={{ marginLeft: -9 }} className="col-sm-3  col-form-label" >
-                    Type
-                  </strong>
-                  <input
-                    name="topic"
-                    style={{ marginLeft: 9 }}
-                    className="form-control w-75"
-                   
-                    type="text"
-                    minLength="2"
-                    placeholder="Start"
-                    
-                    value={package_type}
-                    onChange={(e) => setPackage_type(e.target.value)}
-                  />
-                </div>
-
-
-                {/* price */}
-                <div className="row w-50  mx-auto mt-3">
-                <strong  style={{ marginLeft: -9 }} className="col-sm-3  col-form-label" >
-                    price
-                  </strong>
-                  <input
-                    name="topic"
-                    style={{ marginLeft: 9 }}
-                    className="form-control w-75"
-                   
-                    type="text"
-                    minLength="2"
-                    placeholder="End"
-                    
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                    required
-                  />
-                </div>
-
-                
-                {/* time */}
-                <div className="row w-50  mx-auto mt-3">
-                <strong  style={{ marginLeft: -9 }} className="col-sm-3  col-form-label" >
-                     Time
-                  </strong>
-                  <input
-                    name="topic"
-                    style={{ marginLeft: 9 }}
-                    className="form-control w-75"
-                   
-                    type="time"
-                    minLength="2"
-                   
-                    placeholder="Start time"
-                    
-                    value={valid}
-                    onChange={(e) => setValid(e.target.value)}
-                    required
-                  />
-                </div>
-                {/* details */}
-                <div className="row w-50  mx-auto mt-3">
-                <strong  style={{ marginLeft: -9 }} className="col-sm-3  col-form-label" >
-                    details
-                  </strong>
-                  <input
-                    name="topic"
-                    style={{ marginLeft: 9 }}
-                    className="form-control w-75"
-                   
-                    type="text"
-                    minLength="2"
-                    value={details}
-                    onChange={(e) => setDetails(e.target.value)}
-                    required
-                  />
-                </div>
-
-                <div
-                  className="row w-50 mx-auto mt-3 mb-4 "
-                  style={{ borderRadius: 30 }}
-                >
-                  
-                <button className="btn btn-primary mb-2" onClick={(e) => save(e)}>
-                  Submit
-                </button>
-                <Link to="/view-bus" className="btn btn-danger">
-                  Cancel
-                </Link>
-
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
-        
       </div>
-    </div>
 
-
-
-
-
-
-      *****************************
-
-
+      {/* *****************************
       <br />
       <br />
       <div className="container">
@@ -268,7 +266,7 @@ function AddPackege() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

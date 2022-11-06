@@ -45,9 +45,7 @@ function App() {
         </main>
       </React.Fragment>
 
-      <div>
-        
-      </div>
+      <div></div>
     </div>
   );
 }
